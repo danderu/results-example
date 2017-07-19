@@ -18,6 +18,22 @@
         "CLIENT_SECRET": {
             "required": true,
             "description": "The Client Secret you've got from Typeform"
+        },
+        "COMMUNITY_NAME": {
+            "required": true,
+            "description": "The name of your community. e.g. 'My Cool Community'"
+        },
+        "SLACK_URL": {
+            "required": true,
+            "description": "<your-slack-team-name>.slack.com"
+        },
+        "SLACK_TOKEN": {
+            "required": true,
+            "description": "The token provided by Slack to your team"
+        },
+        "INVITE_TOKEN": {
+            "required": true,
+            "description": "The Invite token for your Slack community"
         }
     }
 }

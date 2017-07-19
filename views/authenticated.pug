@@ -15,18 +15,40 @@ html
           h2 #{community}
         .content
           .information
-            <p>You can invite these people:</p><p style="color: blue;">#{emails}</p>
+            <p>You can invite these people:</p>
+            <ul style="color: blue;">
+            each email in emails
+              li= email
+            </ul>
+            <button id='send-invites'>Send invites</button>
             <p>Maybe you want to <a href="/logout">log out</a>?</p>
     script.
-      var tokenRequired = #{tokenRequired};
-      var form = document.getElementById('join-form');
-      var email = document.getElementById('slack-email');
-      var token = document.getElementById('slack-token');
-      form.addEventListener('submit', function(evt) {
-        if (!email.value) {
-          evt.preventDefault();
+      //- var tokenRequired = #{tokenRequired};
+      var button = document.getElementById('send-invites');
+      //- var slackToken = document.getElementById('slack-token');
+      button.addEventListener('click', function(evt) {
+        //- if (!emails || emails.length) {
+        //-   evt.preventDefault();
+        //- }
+        //- if (tokenRequired && !slackToken.value) {
+        //-   evt.preventDefault();
+        //- }
+
+        var form = document.createElement("form");
+        form.setAttribute("method", 'POST');
+        form.setAttribute("action", '/invite');
+
+        var params = "#{emails}".split(',')
+
+        for(var i=0; i < params.length; i++) {
+          var hiddenField = document.createElement("input");
+          hiddenField.setAttribute("type", "hidden");
+          hiddenField.setAttribute("name", "email_" + i);
+          hiddenField.setAttribute("value", params[i]);
+
+          form.appendChild(hiddenField);
         }
-        if (tokenRequired && !token.value) {
-          evt.preventDefault();
-        }
+
+        document.body.appendChild(form);
+        form.submit();
       });
