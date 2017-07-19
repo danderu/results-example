@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const getResponses = require('./getResponses')
 
 class Handlers {
     constructor (typeform_api_url, default_form_id) {
@@ -11,26 +12,32 @@ class Handlers {
 
     indexHandler(req, res) {
         if (!req.isAuthenticated()) {
-            return res.end(`
-            <body>
-                <h3>Hello stranger!</h3>
-                <p>You're not authenticated, you need to <a href="/login">authenticate via Typeform</a>.
-            </body>
-            `)
+          return res.render('anonymous', {
+            community: process.env.COMMUNITY_NAME || 'The Pillows Team',
+            tokenRequired: !!process.env.INVITE_TOKEN || null
+          })
         }
 
         if (this.DEFAULT_FORM_ID) {
-            return res.redirect(`/results/${this.DEFAULT_FORM_ID}`);
+          return res.redirect(`/results/${this.DEFAULT_FORM_ID}`);
         }
 
-        let data = JSON.stringify(req.user);
-        return res.end(`
-        <body>
-            <h3>Hello, ${data.userName}!</h3>
-            <p>Here's your token:</p><p style="color: blue;">${data}</p>
-            <p>Maybe you want to <a href="/logout">log out</a>?</p>
-        </body>
-        `);
+        return getResponses('CQic7l', req.user.access_token)
+          .then(data => {
+            const emails = data.items.map(item => {
+              if (item.answers) {
+                if (item.answers[0].type == "email") {
+                  return item.answers[0].email
+                }
+              }
+            })
+            return res.render('authenticated', {
+              community: process.env.COMMUNITY_NAME || 'The Pillows Team',
+              tokenRequired: !!process.env.INVITE_TOKEN || null,
+              emails
+            })
+          })
+
     }
 
     displayResultsHandler(req, res) {

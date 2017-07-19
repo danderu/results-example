@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/typeform/results-example#readme",
   "dependencies": {
+    "es6-promise": "^4.1.1",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
+    "isomorphic-fetch": "^2.2.1",
     "node-fetch": "^1.7.1",
     "passport": "^0.3.2",
-    "passport-oauth2": "^1.4.0"
+    "passport-oauth2": "^1.4.0",
+    "pug": "^2.0.0-rc.2"
   }
 }

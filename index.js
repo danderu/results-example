@@ -1,3 +1,6 @@
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 // yeah, let's start with that :)
 function die(msg, code) {
     console.log(msg);
@@ -67,6 +70,15 @@ passport.deserializeUser((user, done) => done(null, user));
 const app = express();
 const handlers = new(require('./handlers'))(TYPEFORM_API_BASE_URL, DEFAULT_FORM_ID);
 
+// view engine setup
+const path = require('path');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+// serve static content
+app.use(express.static(path.join(__dirname, 'public')));
+
+// initialize session
 app.use(session);
 app.use(passport.initialize());
 app.use(passport.session());
