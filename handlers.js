@@ -26,7 +26,7 @@ class Handlers {
         let data = JSON.stringify(req.user);
         return res.end(`
         <body>
-            <h3>Hello, %username%!</h3>
+            <h3>Hello, ${data.userName}!</h3>
             <p>Here's your token:</p><p style="color: blue;">${data}</p>
             <p>Maybe you want to <a href="/logout">log out</a>?</p>
         </body>
