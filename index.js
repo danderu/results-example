@@ -86,7 +86,9 @@ app.get('/logout', (req, res) => {
 
 // STEP 1: Index
 app.get('/', (req, res) => {
-  return res.render('index')
+  return res.render('index', {
+    redirectUri: config.APPLICATION_URL
+  })
 })
 
 // STEP 2: User logged with slack
