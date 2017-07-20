@@ -84,6 +84,23 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+// STEP 1: Index
+app.get('/', (req, res) => {
+  return res.render('index')
+})
+
+// STEP 2: User logged with slack
+app.get('/team', (req, res) => {
+  // TODO: Get slack team information
+  const getSlackTeam = require('./getSlackTeam')
+  return getSlackTeam(req.query.code)
+    .then(team => res.render('team', {
+      community: team.name,
+      logo: team.icon.image_88
+    }))
+})
+
+
 app.get('/', typeformHandlers.indexHandler);
 app.get('/form', require_authentication, typeformHandlers.formHandler);
 app.get('/submit', require_authentication, typeformHandlers.submitHandler);

@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const getResponses = require('./getResponses')
+const getForms = require('./getForms')
 
 module.exports = class TypeformHandlers {
   constructor (typeform_api_url, default_form_id) {
@@ -19,12 +20,17 @@ module.exports = class TypeformHandlers {
   }
 
   formHandler(req, res) {
-    return res.render('form', {
-      community: process.env.COMMUNITY_NAME || 'The Pillows Team'
-    })
+    return getForms(req.user.access_token)
+      .then(forms => {
+        return res.render('form', {
+          community: process.env.COMMUNITY_NAME || 'The Pillows Team',
+          forms
+        })
+      })
   }
 
   submitHandler(req, res) {
+    console.log('submit', req)
     return getResponses(req.query.formId, req.user.access_token)
       .then(data => {
         const emails = data.items.map(item => {

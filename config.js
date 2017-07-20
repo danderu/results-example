@@ -23,6 +23,8 @@ const DEFAULT_FORM_ID = process.env.DEFAULT_FORM_ID;
 const COMMUNITY_NAME = process.env.COMMUNITY_NAME || die("Missing 'COMMUNITY_NAME' environment variable.");
 const SLACK_URL = process.env.SLACK_URL || die("Missing 'SLACK_URL' environment variable.");
 const SLACK_TOKEN = process.env.SLACK_TOKEN || die("Missing 'SLACK_TOKEN' environment variable.");
+const SLACK_CLIENT_ID = process.env.SLACK_CLIENT_ID || die("Missing 'SLACK_CLIENT_ID' environment variable.");
+const SLACK_CLIENT_SECRET = process.env.SLACK_CLIENT_SECRET || die("Missing 'SLACK_CLIENT_SECRET' environment variable.");
 const INVITE_TOKEN = process.env.INVITE_TOKEN || null;
 
 const MY_HOST = '0.0.0.0';
@@ -43,5 +45,7 @@ module.exports = {
   INVITE_TOKEN,
   MY_HOST,
   MY_PORT,
-  MY_ADDR
+  MY_ADDR,
+  SLACK_CLIENT_ID,
+  SLACK_CLIENT_SECRET
 }

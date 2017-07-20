@@ -11,15 +11,7 @@ html
       .main
         .header
           h1
-            strong #{community}
-          h2 #{community}
+            strong You've successfully connected to #{community} community!
         .content
           .information
-          <form action="/submit">
-            <label for="formId">Please select the form you want to use to get invites from</label>
-            <select id="formId" name="formId">
-              each form in forms
-                <option value="#{form.id}">#{form.title}</option>
-            </select>
-            <input type="submit">Send</input>
-          </form>
+            <p>Now, let's <a href="/login">connect with Typeform</a></p>
