@@ -30,7 +30,6 @@ module.exports = class TypeformHandlers {
   }
 
   submitHandler(req, res) {
-    console.log('submit', req)
     return getResponses(req.query.formId, req.user.access_token)
       .then(data => {
         const emails = data.items.map(item => {

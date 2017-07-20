@@ -15,9 +15,6 @@ const session = require('express-session')({
 const passport = require('passport');
 const OAuth2Strategy = require('passport-oauth2');
 
-console.log(config.AUTHORIZATION_URL);
-console.log(config.TOKEN_URL);
-
 // setup passport
 passport.use(new OAuth2Strategy({
     authorizationURL: config.AUTHORIZATION_URL,
@@ -28,7 +25,6 @@ passport.use(new OAuth2Strategy({
     scope: ["results:read"],
   },
   (accessToken, refreshToken, profile, cb) => {
-    console.log(accessToken, refreshToken, profile);
     cb(null, {
       "access_token": accessToken
     });
@@ -93,7 +89,6 @@ app.get('/', (req, res) => {
 
 // STEP 2: User logged with slack
 app.get('/team', (req, res) => {
-  console.log('code: ', req.query.code)
   const getSlackTeam = require('./getSlackTeam')
   return getSlackTeam(req.query.code)
     .then(team => res.render('team', {
