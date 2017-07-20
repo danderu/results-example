@@ -16,12 +16,16 @@ module.exports = class TypeformHandlers {
         tokenRequired: !!process.env.INVITE_TOKEN || null
       })
     }
+  }
 
-    if (this.DEFAULT_FORM_ID) {
-      return res.redirect(`/results/${this.DEFAULT_FORM_ID}`);
-    }
+  formHandler(req, res) {
+    return res.render('form', {
+      community: process.env.COMMUNITY_NAME || 'The Pillows Team'
+    })
+  }
 
-    return getResponses('CQic7l', req.user.access_token)
+  submitHandler(req, res) {
+    return getResponses(req.query.formId, req.user.access_token)
       .then(data => {
         const emails = data.items.map(item => {
           if (item.answers) {
@@ -30,7 +34,7 @@ module.exports = class TypeformHandlers {
             }
           }
         })
-        return res.render('authenticated', {
+        return res.render('invites', {
           community: process.env.COMMUNITY_NAME || 'The Pillows Team',
           tokenRequired: !!process.env.INVITE_TOKEN || null,
           emails

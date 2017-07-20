@@ -57,7 +57,7 @@ app.use(passport.session());
 
 const authenticator = passport.authenticate('oauth2', {
   failureRedirect: '/login',
-  successReturnToOrRedirect: '/'
+  successReturnToOrRedirect: '/form'
 })
 
 const require_authentication = function (req, res, next) {
@@ -85,6 +85,8 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/', typeformHandlers.indexHandler);
+app.get('/form', require_authentication, typeformHandlers.formHandler);
+app.get('/submit', require_authentication, typeformHandlers.submitHandler);
 // app.post('/invite', require_authentication, slackHandlers.inviteHandler);
 app.use('/', require_authentication, routes);
 
