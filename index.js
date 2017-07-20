@@ -93,7 +93,7 @@ app.get('/', (req, res) => {
 
 // STEP 2: User logged with slack
 app.get('/team', (req, res) => {
-  // TODO: Get slack team information
+  console.log('code: ', req.query.code)
   const getSlackTeam = require('./getSlackTeam')
   return getSlackTeam(req.query.code)
     .then(team => res.render('team', {

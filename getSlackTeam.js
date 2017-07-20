@@ -2,6 +2,7 @@ const config = require('./config')
 
 module.exports = async function getSlackTeam(code) {
   const token = await getSlackToken(code)
+  console.log('token', token)
   return new Promise((resolve, reject) => {
     fetch(`https://slack.com/api/team.info?token=${token}`)
       .then(response => {
