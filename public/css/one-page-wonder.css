@@ -118,6 +118,10 @@ a:hover {
 
 }
 
+.lead {
+    color: #fff;
+}
+
 footer {
     margin: 50px 0;
 }
