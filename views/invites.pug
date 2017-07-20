@@ -31,10 +31,12 @@ html
       <div class="headline">
         <div class="container">
           <h2>Hoorray! You can send an invite to your community to these people.</h2>
-          <ul style="color: blue;">
+          <div class="table-responsive">
+            <table class="table">
             each email in emails
-              li= email
-          </ul>
+              <tr><td>email</td></tr>
+            </table>
+          </div>
           <button id='send-invites' class='btn btn-default btn-lg'>Send them invites</button>
         </div>
       </div>
