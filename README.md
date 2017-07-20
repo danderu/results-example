@@ -1,14 +1,5 @@
-# results-example
-
-This is an example application which utilizes the Typeform authentication mechanism,
-and also calls the responses API to plot the simple forms data.
-
-The application has two main enpoints:
-
-- `/` — an index page which provides an interface to log in and log out actions;
-- `/results/:id` — a page which plots the graph for the particular form identified by the `:id` parameter
-(for example `/results/urFORM` will display the plot for the form identified by `urFORM`).
-
+# Slacker
+Typeform Hackathon Challenge 2017
 
 ## Getting started
 

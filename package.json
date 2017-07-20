@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/typeform/results-example/issues"
   },
+  "engines": {
+    "node": "8.x.x"
+  },
   "homepage": "https://github.com/typeform/results-example#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
