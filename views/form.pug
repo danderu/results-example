@@ -30,14 +30,14 @@ html
       <header class="header-image">
           <div class="headline">
               <div class="container">
-                  <h2>Almost there! Choose the typeform you'de like to use from the list below.</h2>
+                  <h2>Almost there! Choose the typeform you'd like to use from the list below.</h2>
                   <form action="/submit">
                     <label for="formId">Please select the form you want to use to get invites from</label>
-                    <select id="formId" name="formId">
+                    <select id="formId" name="formId" class="form-control">
                       each form in forms
                         <option value="#{form.id}">#{form.title}</option>
                     </select>
-                    <input type="submit">This one</input>
+                    <button type="submit" class="btn btn-default">This one</button>
                   </form>
                   <div class="powered-by">Powered by <strong>Typeform</strong></div>
                   <div class="arrow" >
