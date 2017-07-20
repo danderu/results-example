@@ -59,12 +59,16 @@ body {
 }
 
 form {
-    margin-top: 40px;
+    margin: 40px auto;
     width: 40%;
 }
 
 form label {
     color: #fff;
+}
+
+form button {
+    margin-top: 20px;
 }
 
 .featurette-divider {
