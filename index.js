@@ -1,8 +1,6 @@
 const { send } = require('micro');
 const microAuthSlack = require('./micro/microauth-slack');
 
-console.log(process.env)
-
 const options = {
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
