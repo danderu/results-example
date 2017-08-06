@@ -1,11 +1,6 @@
 {
     "name": "Slacker",
     "env": {
-        "TYPEFORM_API_BASE_URL": {
-            "required": true,
-            "value": "https://api.challenge.typeform.com",
-            "description": "An entry point for the Typeform services (OAuth + API)"
-        },
         "APPLICATION_URL": {
             "required": true,
             "value": "https://<your_app_name>.herokuapp.com",
@@ -13,27 +8,11 @@
         },
         "CLIENT_ID": {
             "required": true,
-            "description": "The Client ID you've got from Typeform"
+            "description": "The Client ID you've got from Slack"
         },
         "CLIENT_SECRET": {
             "required": true,
-            "description": "The Client Secret you've got from Typeform"
-        },
-        "COMMUNITY_NAME": {
-            "required": true,
-            "description": "The name of your community. e.g. 'My Cool Community'"
-        },
-        "SLACK_URL": {
-            "required": true,
-            "description": "<your-slack-team-name>.slack.com"
-        },
-        "SLACK_TOKEN": {
-            "required": true,
-            "description": "The token provided by Slack to your team"
-        },
-        "INVITE_TOKEN": {
-            "required": true,
-            "description": "The Invite token for your Slack community"
+            "description": "The Client Secret you've got from Slack"
         }
     }
 }

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "micro",
-    "dev": "micro-dev"
+    "dev": "micro-dev",
+    "deploy": "now --dotenv --public"
   },
   "repository": {
     "type": "git",
@@ -21,18 +22,8 @@
   },
   "homepage": "https://github.com/danderu/slacker#readme",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "es6-promise": "^4.1.1",
-    "express": "^4.15.3",
-    "express-session": "^1.15.3",
-    "isomorphic-fetch": "^2.2.1",
     "micro": "^8.0.1",
-    "microauth-slack": "0.0.1",
-    "node-fetch": "^1.7.1",
-    "passport": "^0.3.2",
-    "passport-oauth2": "^1.4.0",
-    "pug": "^2.0.0-rc.2",
-    "request": "^2.81.0"
+    "microauth-slack": "0.0.1"
   },
   "devDependencies": {
     "micro-dev": "^1.1.1"
