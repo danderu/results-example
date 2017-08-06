@@ -1,35 +1,40 @@
 {
-  "name": "results-example",
+  "name": "slacker",
   "version": "1.0.0",
-  "description": "Typeform Results API demo application",
+  "description": "Slacker service",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "micro",
+    "dev": "micro-dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/typeform/results-example.git"
+    "url": "git+https://github.com/danderu/slacker.git"
   },
-  "author": "Typeform S.L.",
+  "author": "dandel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/typeform/results-example/issues"
+    "url": "https://github.com/danderu/slacker/issues"
   },
   "engines": {
     "node": "8.x.x"
   },
-  "homepage": "https://github.com/typeform/results-example#readme",
+  "homepage": "https://github.com/danderu/slacker#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "es6-promise": "^4.1.1",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "isomorphic-fetch": "^2.2.1",
+    "micro": "^8.0.1",
+    "microauth-slack": "0.0.1",
     "node-fetch": "^1.7.1",
     "passport": "^0.3.2",
     "passport-oauth2": "^1.4.0",
     "pug": "^2.0.0-rc.2",
     "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^1.1.1"
   }
 }
