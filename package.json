@@ -27,6 +27,12 @@
     "microrouter": "^2.2.2"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^2.0.0",
     "micro-dev": "^1.1.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
