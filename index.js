@@ -1,19 +1,13 @@
 const { send } = require('micro');
 const microAuthSlack = require('microauth-slack');
-const { router, get } = require('microrouter');
 
-const options = {
+const slackAuth = microAuthSlack({
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
   callbackUrl: `${process.env.APPLICATION_URL}/auth/slack/callback`,
   path: '/auth/slack',
   scope: 'identity.basic,identity.team,identity.avatar'
-};
-
-const slackAuth = microAuthSlack(options);
-
-const hello = (req, res) =>
-  send(res, 200, `Hello ${req.params.who}`)
+});
 
 const handler = async (req, res, auth) => {
 
@@ -41,7 +35,4 @@ const handler = async (req, res, auth) => {
 
 };
 
-module.exports = router(
-  get('/hello/:who', hello),
-  slackAuth(handler)
-);
+module.exports = slackAuth(handler);

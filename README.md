@@ -1,4 +1,4 @@
-# Slacker
+# Slacker Slack auth service
 Typeform Hackathon Challenge 2017
 
 ## Getting started
@@ -31,7 +31,7 @@ To run the application you would need to setup some environment variables. The e
 
 ```
 $ cat .env
-APPLICATION_URL=http://localhost:3000
+APPLICATION_URL=<your_application_url>
 CLIENT_ID=<your_slack_client_id>
 CLIENT_SECRET=<your_slack_client_secret>
 

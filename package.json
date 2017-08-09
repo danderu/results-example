@@ -1,7 +1,7 @@
 {
-  "name": "slacker",
+  "name": "slacker-slack-auth",
   "version": "1.0.0",
-  "description": "Slacker service",
+  "description": "Slacker slack auth service",
   "main": "index.js",
   "scripts": {
     "start": "micro -p $PORT",
@@ -10,21 +10,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danderu/slacker.git"
+    "url": "git+https://github.com/danderu/slacker-slack-auth.git"
   },
   "author": "dandel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danderu/slacker/issues"
+    "url": "https://github.com/danderu/slacker-slack-auth/issues"
   },
   "engines": {
     "node": ">= 7.6.0"
   },
-  "homepage": "https://github.com/danderu/slacker#readme",
+  "homepage": "https://github.com/danderu/slacker-slack-auth#readme",
   "dependencies": {
     "micro": "^8.0.1",
-    "microauth-slack": "0.0.2",
-    "microrouter": "^2.2.2"
+    "microauth-slack": "0.0.2"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.0.0",
