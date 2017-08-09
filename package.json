@@ -4,7 +4,7 @@
   "description": "Slacker service",
   "main": "index.js",
   "scripts": {
-    "start": "micro",
+    "start": "micro -p $PORT",
     "dev": "micro-dev",
     "deploy": "now --dotenv --public"
   },
