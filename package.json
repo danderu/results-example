@@ -23,7 +23,8 @@
   "homepage": "https://github.com/danderu/slacker#readme",
   "dependencies": {
     "micro": "^8.0.1",
-    "microauth-slack": "0.0.2"
+    "microauth-slack": "0.0.2",
+    "microrouter": "^2.2.2"
   },
   "devDependencies": {
     "micro-dev": "^1.1.2"
